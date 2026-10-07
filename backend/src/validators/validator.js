@@ -24,6 +24,13 @@ export const loginValidator = [
   passwordValidation(),
 ];
 
+export const createProjectValidator = [
+  body("name")
+    .trim()
+    .notEmpty()
+    .withMessage("Project name is required"),
+];
+
 export function validateRequest(request, response, next) {
   const errors = validationResult(request);
 
